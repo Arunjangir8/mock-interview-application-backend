@@ -6,7 +6,23 @@ import { PrismaClient } from "@prisma/client";
 
 const app=express();
 const port=8000;
-app.use(cors({ origin: "https://mock-interview-application.vercel.app", credentials: true }));
+const allowedOrigins = [
+    "http://localhost:3000",
+    "https://mock-interview-application.vercel.app"
+  ];
+  
+  app.use(cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.log("Blocked by CORS:", origin);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true
+  }));
+  
 app.use(cookieParser());
 app.use(express.json())
 const prisma = new PrismaClient()
