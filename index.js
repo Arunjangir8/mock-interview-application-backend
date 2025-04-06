@@ -6,7 +6,7 @@ import { PrismaClient } from "@prisma/client";
 
 const app=express();
 const port=8000;
-app.use(cors({ origin: "https://mock-interview-application.vercel.app/", credentials: true }));
+app.use(cors({ origin: "https://mock-interview-application.vercel.app", credentials: true }));
 app.use(cookieParser());
 app.use(express.json())
 const prisma = new PrismaClient()
