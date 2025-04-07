@@ -14,7 +14,6 @@ const JWT_SECRET = "123456789"
 
 
 
-setInterval(reloadWebsite, interval);
 
 import { LoginUser,Signuser } from "./Routes/Login.js";
 app.post("/signup",Signuser)
