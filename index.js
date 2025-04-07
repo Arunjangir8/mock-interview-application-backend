@@ -12,6 +12,22 @@ app.use(express.json())
 const prisma = new PrismaClient()
 const JWT_SECRET = "123456789"
 
+const url = `https://mock-interview-application-backend.onrender.com`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
+
 import { LoginUser,Signuser } from "./Routes/Login.js";
 app.post("/signup",Signuser)
 app.post("/login",LoginUser)
