@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = "123456789";
 const prisma = new PrismaClient();
 
-// Generate JWT with only user ID
+
 const generateToken = (userId) => {
   return jwt.sign({ userId }, JWT_SECRET, { expiresIn: "1d" });
 };

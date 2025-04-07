@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const router = express.Router();
 const prisma = new PrismaClient();
 
-// Create appointment
+
 router.post("/", async (req, res) => {
     const { userId, interviewerId, dateTime } = req.body;
   
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
         data: {
           userId,
           interviewerId,
-          dateTime: new Date(dateTime), // This will now correctly parse ISO string
+          dateTime: new Date(dateTime), 
         },
       });
       res.status(201).json({ message: "Appointment booked", appointment });

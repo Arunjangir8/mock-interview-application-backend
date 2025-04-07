@@ -28,7 +28,7 @@ router.put("/:id", async (req, res) => {
           phone,
           address,
           gender,
-          Bod: Bod ? new Date(Bod) : undefined, // Convert Bod only if it exists
+          Bod: Bod ? new Date(Bod) : undefined, 
         },
       });
   
